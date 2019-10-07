@@ -12,7 +12,9 @@ a = json.loads(html)
 b = a["data"]["vlist"]
 # 获取每个视频的 aid 并添加到 download_list
 for i in b:
-    download_list.append("https://www.bilibili.com/av" + str(i["aid"]))
+    download_list.append("you-get --playlist --format=dash-flv720 https://www.bilibili.com/av" + str(i["aid"]))
+print(download_list)
 # 下载URL为：https://www.bilibili.com/av + $i["aid"]
 for i in download_list:
     print(i)
+    # os.system(i)
