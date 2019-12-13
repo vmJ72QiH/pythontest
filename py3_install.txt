@@ -1,6 +1,19 @@
-# 安装 Python3.6
+
+#CENTOS7 安装 Python3.6
 yum -y install python36 python36-devel
 # 配置并载入 Python3 虚拟环境
 cd /opt
 python3.6 -m venv py3          # py3 为虚拟环境名称, 可自定义
 source /opt/py3/bin/activate   # 退出虚拟环境可以使用 deactivate 命令
+
+#CENTOS6 安装 Python3.6
+yum -y install epel-release
+安装IUS软件源
+请根据您的系统选择rpm包:
+https://rhel6.iuscommunity.org/ius-release.rpm
+https://rhel7.iuscommunity.org/ius-release.rpm
+https://centos6.iuscommunity.org/ius-release.rpm
+https://centos7.iuscommunity.org/ius-release.rpm
+
+rpm -ivh https://centos6.iuscommunity.org/ius-release.rpm
+yum -y install python36u python36u-pip
