@@ -52,7 +52,7 @@ def process_data(threadName, q):
             else:
                     expire_date = m.group(1)
                     b = re.sub(r'月', '', expire_date)
-                    b = time.strptime(b, "%m %d %H:%M:%S %Y GMT")
+                    b = time.strptime(b, "%m %d %H:%M:%S %Y GMT") #该时间格式需要根据获取的时间适当变更，参考https://www.runoob.com/python/python-date-time.html
                     expire_date = time.strftime("%Y-%m-%d", b)
                     print("%-15s CA过期时间: %s   %s" %(a, expire_date, threadName))
             #queueLock.release()
