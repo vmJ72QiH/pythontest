@@ -121,12 +121,30 @@ for i in domain_list:
     expiresdate.append(one)
 
 expiresdate_sorted = sorted(expiresdate, key=lambda x: x['expires'])
-# print(expiresdate_sorted)
+
+def month_list():
+    year_mon = time.strftime("%Y-%m", time.localtime())
+    year_mon_s = year_mon.split("-")
+    year = year_mon_s[1]
+    mon = year_mon_s[0]
+    year_mon_list = []
+    for i in range(0, 12):
+        e = i + int(year)
+        k = mon
+        e = "0" + str(e)
+        j = k + "-" + e
+        year_mon_list.append(j)
+        if int(e) >= 12:
+            e = "0" + str(int(e) - 11)
+            k = str(int(mon) + 1)
+            j = k + "-" + e
+            year_mon_list.append(j)
+    return year_mon_list
+
+year_mon = month_list()
+
 for i in expiresdate_sorted:
-    if "2020-07" in i['expires']:
-        print(i)
-
-
-
-
+    for k in year_mon:
+        if k in i['expires']:
+            print(i)
 
