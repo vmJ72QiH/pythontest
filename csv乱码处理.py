@@ -36,12 +36,31 @@
 #print(row_number) # [0]
 #----------------------------------------------------------------------#
 #--------------------获取csv指定值的行号及制定列的值-------------------#
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import codecs
 import pandas as pd
 file = pd.read_csv("test.csv",encoding='utf-8')
 df = pd.DataFrame(file)
-
+positive = range(len(df))
+reverse = []
 a = list(df)
-h_nub = df[df[a[0]].isin(['bw3000'])].index.tolist() #h_nub的类型为list
-result_new = df.loc[h_nub[0], a[3]]
-print result_new
+#h_nub = df[df[a[0]].isin(['rj99999'])].index.tolist() # 取不到值 结果为空list
+#result_new = df.loc[h_nub[0], a[3]] #该值的类型为unicode 需要用 str()切换
+#exit()
+with open("bbb.txt", 'r') as src_txt:
+    src_list = list(src_txt)
+
+for i in src_list:
+    k = i.replace('\n','')
+    h_numb = df[df[a[0]].isin([k])].index.tolist()
+    reverse = reverse + h_numb 
+    positive = list(set(positive) - set(h_numb))
+
+for ii in positive:
+    with open("positive.txt", 'a') as positive_txt:
+        positive_txt.write(str(df.loc[ii, a[3]]) + "\n")
+
+for kk in reverse:
+    with open("reverse.txt", 'a') as reverse_txt:
+        reverse_txt.write(str(df.loc[kk, a[3]]) + "\n")
