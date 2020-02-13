@@ -14,3 +14,8 @@ print b.decode("unicode-escape")
 a = list(df)
 for i in a:
 	print i #变量i的值为正常的中文值
+
+#pandas获取列的行号  
+#1 已知列名：df[df['列名'].isin([相应的值])]
+
+#2未知列名：data[data.iloc[:,0].isin([data_line])] # 第一列某个值的行号
