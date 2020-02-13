@@ -1,0 +1,34 @@
+安装
+pip install pandas
+引用
+import pandas as pd
+import numpy as np
+
+范例
+
+index = pd.date_range('1/1/2000', periods=8
+s = pd.Series(np.random.randn(5), index=['a', 'b', 'c', 'd', 'e']
+df = pd.DataFrame(np.random.randn(8, 3), index=index, columns=['A', 'B', 'C'])
+
+print s
+
+a    0.490998
+b    0.115861
+c   -0.152797
+d   -2.001042
+e    0.258713
+dtype: float64
+
+print 
+                   A         B         C
+2000-01-01  0.710477 -0.535667 -0.985972
+2000-01-02 -0.098034 -1.780008 -0.391579
+2000-01-03  0.408564  0.102905  0.770838
+2000-01-04 -1.721699 -0.662979  0.789353
+2000-01-05  1.983252  0.857379  1.282470
+2000-01-06 -1.174655 -0.027093 -0.217698
+2000-01-07  0.416073  2.206452  0.446492
+2000-01-08  0.787154  1.518420  0.129820
+
+
+Series 和 DataFrame的区别 Series 是单列的
