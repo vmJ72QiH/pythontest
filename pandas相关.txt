@@ -3,6 +3,7 @@ pip install pandas
 引用
 import pandas as pd
 import numpy as np
+https://www.pypandas.cn/docs/getting_started/10min.html#%E9%80%89%E6%8B%A9  中文文档
 
 范例
 
@@ -32,3 +33,42 @@ print
 
 
 Series 和 DataFrame的区别 Series 是单列的
+
+
+df.loc df.iloc  接受的参数的顺序都是 行 列 ，df.loc以index和col值来获取数据  df.iloc是以行号和列号
+
+写出数据¶
+写入CSV格式
+的Series和DataFrame对象具有一个实例方法to_csv，其允许存储所述对象的内容为逗号分隔值的文件。该函数带有多个参数。仅第一个是必需的。
+
+path_or_buf：要写入的文件或文件对象的字符串路径。如果是文件对象，则必须使用换行符打开'
+sep ：输出文件的字段分隔符（默认为“，”
+na_rep：缺少值的字符串表示形式（默认值”
+float_format：浮点数格式字符
+columns：要写入的列（默认为无
+header：是否写出列名（默认为True
+index：是否写入行（索引）名称（默认为True
+index_label：如果需要，用于索引列的列标签。如果无（默认），并且标头和索引为True，则使用索引名称。（如果DataFrame使用MultiIndex，则应给出一个序列）
+mode ：Python写入模式，默认为'w
+encoding：一个字符串，表示内容为非ASCII时使用的编码，对于3之前的Python版
+line_terminator：表示行尾的字符序列（默认为os.linesep
+quoting：像在csv模块中一样设置报价规则（默认为csv.QUOTE_MINIMAL）。请注意，如果您设置了float_format，那么浮点数将转换为字符串，并且csv.QUOTE_NONNUMERIC会将其视为非数字形
+quotechar：用于引用字段的字符（默认为“””
+doublequote：控制quotecharin字段中的引用（默认为True
+escapechar：用于转义的字符，sep以及quotechar在适当时使用的字符（默认为None
+chunksize：一次写入的行
+date_format：日期时间对象的格式字符
+写一个格式化字符串
+该DataFrame对象具有一个实例方法to_string，该方法可以控制该对象的字符串表示形式。所有参数都是可选的
+buf 默认值None，例如StringIO对
+columns 默认为None，要写入的
+col_space 默认值无，每列的最小宽度
+na_rep默认值NaN，NA值的表示形
+formatters 默认值None，一个函数字典（按列），每个函数都有一个参数并返回格式化的字符
+float_format默认值None，该函数采用单个（浮点）参数并返回格式化的字符串；应用于浮标 DataFrame
+sparsify默认为True，对于DataFrame具有层次结构索引的，将其设置为False，以在每行打印每个MultiIndex键
+index_names 默认为True，将打印索引名
+index 默认为True，将打印索引（即行标签
+header 默认为True，将打印列标
+justifydefault left，将列标题向左或右对
+该Series对象也有一个to_string方法，但只有buf， na_rep，float_format论点。还有一个length参数，如果设置为True，将另外输出Series的长度。
