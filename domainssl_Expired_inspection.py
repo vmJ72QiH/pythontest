@@ -34,8 +34,8 @@ def mk_localdir(file_name):
     if not os.path.isdir(file_name):
         os.mkdir(file_name)
     else:
-        shutil.rmtree('file_name')
-        os.mkdir('file_name')
+        shutil.rmtree(file_name)
+        os.mkdir(file_name)
 
 
 def process_data(q):
